@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { WebhookAppService } from './webhook-app.service';
 import { HttpService } from '@nestjs/axios';
 
@@ -8,11 +8,6 @@ export class WebhookAppController {
     private readonly webhookAppService: WebhookAppService,
     private readonly httpService: HttpService,
   ) {}
-
-  @Get()
-  getHello(): string {
-    return this.webhookAppService.getHello();
-  }
 
   @Post('/order')
   createOrder(@Body() data: any): any {
